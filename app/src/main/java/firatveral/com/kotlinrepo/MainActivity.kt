@@ -4,17 +4,13 @@ import android.content.Context
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.view.View
-import android.view.Menu
-import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import firatveral.com.kotlinrepo.R
 import firatveral.com.kotlinrepo.adapter.CommitAdapter
 import firatveral.com.kotlinrepo.adapter.RestApiBuilder
 import firatveral.com.kotlinrepo.model.KotlinList
@@ -22,6 +18,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
+import androidx.recyclerview.widget.DividerItemDecoration
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             return activeNetworkInfo != null && activeNetworkInfo.isConnected
         }
 
-    protected override fun attachBaseContext(newBase: Context) {
+    override fun attachBaseContext(newBase: Context) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
     }
 
@@ -58,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView!!.setLayoutManager(layoutManager)
 
 
-        //checking for network connectivity
+        //TODO: checking for network connectivity
         if (!isNetworkAvailable) {
             val snackbar = Snackbar
                 .make(coordinatorLayout!!, "No Network connection", Snackbar.LENGTH_LONG)
@@ -78,9 +75,15 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun prepareData(userList: KotlinList) {
-        adapter = userList.items?.let { CommitAdapter(it) }
+    private fun prepareData(commitList: KotlinList) {
+        adapter = commitList.items?.let { CommitAdapter(it) }
         recyclerView!!.setAdapter(adapter)
+        recyclerView!!.addItemDecoration(
+            DividerItemDecoration(
+                recyclerView!!.getContext(),
+                DividerItemDecoration.VERTICAL
+            )
+        )
 
     }
 

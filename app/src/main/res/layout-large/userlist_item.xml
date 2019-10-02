@@ -18,42 +18,46 @@
 
             <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:id="@+id/profile_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_centerHorizontal="true"
                 android:layout_margin="5dp"
                 app:srcCompat="@drawable/ic_account_circle_black_24dp" />
 
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/commit_url"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/profile_image"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="15dp"
                 android:gravity="center"
                 android:textColor="@color/text_black"
-                android:textSize="15sp" />
+                android:textSize="35sp" />
 
             <TextView
-                android:id="@+id/userstate"
+                android:id="@+id/commit_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/user_name"
+                android:layout_below="@id/commit_url"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="15dp"
                 android:gravity="center"
-                android:textColor="@color/text_black" />
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_name_date"
+                android:textStyle="bold"/>
 
             <TextView
-                android:id="@+id/userdate"
+                android:id="@+id/commit_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/userstate"
+                android:layout_below="@id/commit_name"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="15dp"
                 android:gravity="center"
-                android:textColor="@color/text_black" />
+                android:textColor="@color/text_black"
+                android:textSize="@dimen/text_name_date"
+                android:textStyle="bold"/>
 
         </RelativeLayout>
     </LinearLayout >

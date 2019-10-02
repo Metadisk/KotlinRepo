@@ -14,7 +14,7 @@
         android:id="@+id/recycler_user_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/userlist_item" />
+        tools:listitem="@layout/userlist_item"/>
 
     <ProgressBar
         android:layout_marginTop="60dp"
